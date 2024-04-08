@@ -1,0 +1,50 @@
+# Config file for EFG-SU Competition Project
+
+# Data directories
+data_directory: data
+raw_data_directory: raw
+processed_data_directory: processed
+models_directory: models
+
+# Data file names
+clients_data_file: clients_data.csv
+orders_data_file: orders_data.csv
+
+# Features
+client_features:
+  - ClientID
+  - AccountID
+  - Gender
+  - Age
+  - RiskRate
+  - IsDormant
+  - IsClosed
+  - IsSuspended
+  - OpenDate
+
+order_features:
+  - ClientID
+  - SecurityID
+  - OrderVia
+  - IsComplete
+  - IsCanceled
+  - ExpireDate
+  - Execution
+  - SectorName
+  - Price
+  - Quantity
+
+# Parameters
+churn_criteria:
+  inactive_days: 365  # Number of days without trading to consider a client as churned
+  is_closed: true      # Consider closed accounts as churned clients
+  is_suspended: true   # Consider suspended accounts as churned clients
+
+# Model parameters
+model_params:
+  model_type: RandomForestClassifier
+  random_state: 42
+  n_estimators: 100
+  max_depth: 10
+  min_samples_split: 2
+  min_samples_leaf: 1
